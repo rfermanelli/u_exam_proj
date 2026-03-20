@@ -1,0 +1,114 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+wheels/
+
+# ========================
+# Virtual Environment
+# ========================
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# ========================
+# Django
+# ========================
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Media e file caricati dagli utenti (gestiti fuori dal repo)
+media/
+
+# File statici collezionati (generati da collectstatic)
+staticfiles/
+static_root/
+
+# ========================
+# Variabili d'ambiente e secrets
+# ========================
+.env
+.env.*
+!.env.example
+secrets.json
+*.pem
+*.key
+
+# ========================
+# Testing & Coverage
+# ========================
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+nosetests.xml
+test-results/
+
+# ========================
+# IDE e Editor
+# ========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ========================
+# Jupyter Notebook
+# ========================
+.ipynb_checkpoints
+*.ipynb
+
+# ========================
+# Database dumps e backup
+# ========================
+*.sql
+*.dump
+*.bak
+
+# ========================
+# Docker (file locali, non di produzione)
+# ========================
+docker-compose.override.yml
+.dockerignore
+
+# ========================
+# Celery
+# ========================
+celerybeat-schedule
+celerybeat.pid
+
+# ========================
+# Misc
+# ========================
+*.mo
+*.pot
