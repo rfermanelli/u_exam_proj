@@ -15,8 +15,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+# import della funzione dipartimento_insert definita nel modulo view.py della app struttura
+#from struttura.views import dipartimento_insert
+
+# import del modulo views.py della app struttura
+from struttura import views as struttura_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("admin/", admin.site.urls),
+
+    # corrispondenza tra la funzione dipartimento_insert definita nel modulo view.py della app struttura 
+    # e l'URL relativo
+    #path("dipartimento/new/", dipartimento_insert, name="pagina di insert del dipartimento"),
+    #path("dipartimento/new/", struttura_views.dipartimento_insert, name="pagina di insert del dipartimento"),
+
+    # path globale del modulo views.py della app struttura
+    path("struttura/", include('struttura.urls'))
+
 ]
