@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 
 # import della funzione dipartimento_insert definita nel modulo view.py della app struttura
-#from struttura.views import dipartimento_insert
+from struttura.views import dipartimento_insert
 
 # import del modulo views.py della app struttura
 from struttura import views as struttura_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    #path("", dipartimento_insert, name="pagina di gestione del dipartimento"),
 
     # corrispondenza tra la funzione dipartimento_insert definita nel modulo view.py della app struttura 
     # e l'URL relativo
