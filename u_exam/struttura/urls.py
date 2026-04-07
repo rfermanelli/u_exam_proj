@@ -1,6 +1,6 @@
 from django.urls import path
-from struttura.views import dipartimento_insert
+from struttura.views import dipartimento_list
 
 urlpatterns = [
-    path("dipartimento/new/", dipartimento_insert, name="pagina di insert del dipartimento")
+    path("dipartimento/list/", dipartimento_list, name="pagina di visualizzazione dei dipartimenti"),
 ]
