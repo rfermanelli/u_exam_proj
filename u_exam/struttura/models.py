@@ -39,7 +39,7 @@ class CorsoDiLaurea(models.Model):
     # 2) ordering = definisce l'ordinamento di default nelle query,
     # con ['nome'] i risultati sono determinati in ordine alfabetico per nome.
     class Meta:
-        verbose_name_plural = 'CorsoDiLaurea'
+        verbose_name_plural = 'Corsi di laurea'
         ordering = ['nome']
 
     def __str__(self):

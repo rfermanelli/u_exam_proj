@@ -1,9 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Il Mio Progetto{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'visual.css' %}">
+    <link rel="stylesheet" href="{% static 'corso_di_laurea/cdl.css' %}">
 </head>
 <body>
     <hr>
@@ -16,7 +19,7 @@
         <hr>
         <h2>corsi di laurea</h2>
         {% for corso in corsi_di_laurea %}
-            <p>Nome: {{ corso.nome }}</p>
+            <p class="cdl-content">Nome: {{ corso.nome }}</p>
             <p>Classe di laurea: {{ corso.classe_di_laurea }}</p>
             <p>Tipo: {{ corso.tipo }}</p>
             <p>Dipartimento: {{ corso.dipartimento }}</p>
