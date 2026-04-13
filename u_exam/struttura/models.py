@@ -64,8 +64,8 @@ class Docente(models.Model):
     # con ['nome'] i risultati sono determinati in ordine alfabetico per nome.
     class Meta:
         verbose_name_plural = 'Docenti'
-        ordering = ['nome']
+        ordering = ['nome', 'cognome']
 
     def __str__(self):
-        return self.nome
+        return self.nome + " " + self.cognome
     

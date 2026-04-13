@@ -16,10 +16,10 @@ class Ssd(models.Model):
     # con ['nome'] i risultati sono determinati in ordine alfabetico per nome.
     class Meta:
         verbose_name_plural = 'SSD'
-        ordering = ['nome']
+        ordering = ['codice_ssd']
 
     def __str__(self):
-        return self.nome
+        return self.codice_ssd
     
 
 class Corso(models.Model):
@@ -50,8 +50,8 @@ class AnnoAccademico(models.Model):
     """Modello della entità Anno accademico dell'area Offerta formativa"""
 
     id_anno_accademico = models.IntegerField(primary_key=True)
-    anno_inizio = models.yerField()
-    anno_fine = models.yerField()
+    anno_inizio = models.IntegerField()
+    anno_fine = models.IntegerField()
     stato = models.CharField(max_length=1, choices=[('A', 'Attivo'), ('C', 'Concluso'), ('F', 'Futuro'), ('I', 'In preparazione')], default='A')
     
     # Meta è una classe interna che fornisce a Django i metadati sul modello:
@@ -61,10 +61,10 @@ class AnnoAccademico(models.Model):
     # con ['nome'] i risultati sono determinati in ordine alfabetico per nome.
     class Meta:
         verbose_name_plural = 'Anni accademici'
-        ordering = ['nome']
+        ordering = ['stato', 'anno_inizio']
 
     def __str__(self):
-        return self.nome
+        return self.stato + " " + str(self.anno_inizio) + "/" + str(self.anno_fine)
     
 
 class Docenza(models.Model):
@@ -83,8 +83,8 @@ class Docenza(models.Model):
     # con ['nome'] i risultati sono determinati in ordine alfabetico per nome.
     class Meta:
         verbose_name_plural = 'Docenze'
-        ordering = ['nome']
+        ordering = ['id_docente', 'id_corso', 'id_anno_accademico', 'titolare']
 
     def __str__(self):
-        return self.nome
+        return self.id_docente.__str__() + " - " + self.id_corso.__str__() + " - " + self.id_anno_accademico.__str__() + " - " + ("Titolare" if self.titolare else "Non titolare")
     
