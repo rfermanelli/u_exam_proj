@@ -45,3 +45,27 @@ class CorsoDiLaurea(models.Model):
     def __str__(self):
         return self.nome
     
+
+class Docente(models.Model):
+    # segua una docstring di presentazione del modello:
+    """Modello della entità Docente dell'area Struttura organizzativa"""
+
+    id_docente = models.IntegerField(primary_key=True)
+    nome = models.CharField(max_length=150)
+    cognome = models.CharField(max_length=150)
+    email = models.EmailField(unique=True, max_length=254, null=True, blank=True, default=None, verbose_name="Email del docente")
+    ruolo = models.CharField(max_length=20)
+    dipartimento = models.ForeignKey(Dipartimento, on_delete=models.CASCADE, related_name="docenti")
+
+    # Meta è una classe interna che fornisce a Django i metadati sul modello:
+    # 1) verbose_name_plural = definisce il nome plurale del modello nell'interfaccia admin,
+    # senza questa opzione Django renderebbe il plurale in inglese scrivendo CorsoDiLaureas
+    # 2) ordering = definisce l'ordinamento di default nelle query,
+    # con ['nome'] i risultati sono determinati in ordine alfabetico per nome.
+    class Meta:
+        verbose_name_plural = 'Docenti'
+        ordering = ['nome']
+
+    def __str__(self):
+        return self.nome
+    
