@@ -11,19 +11,27 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+# Gestione della sicurezza
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Lettura della variabile SECRET_KEY dal file .env
+SECRET_KEY = config('SECRET_KEY')
+
+# Lettura della variabile DEBUG dal file .env
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-f3v%8x1rug+yk3$9x8l_hp@rv%w5^^jjx@qg4)_b$(8qqhjdit"
+# SECRET_KEY = "django-insecure-f3v%8x1rug+yk3$9x8l_hp@rv%w5^^jjx@qg4)_b$(8qqhjdit"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 
 ALLOWED_HOSTS = []
 
