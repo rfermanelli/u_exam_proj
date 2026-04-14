@@ -17,10 +17,10 @@ from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Lettura della variabile SECRET_KEY dal file .env
+# Lettura della variabile SECRET_KEY dal file .env:
 SECRET_KEY = config('SECRET_KEY')
 
-# Lettura della variabile DEBUG dal file .env
+# Lettura della variabile DEBUG dal file .env:
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 
