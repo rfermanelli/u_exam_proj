@@ -87,9 +87,22 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
+    },
+
+# Parametri di connessione al database locale mysql.
+
+     'mysql_db': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'u_exam',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+         'PORT': 3307,
     }
 }
 
+# Router mysql del progetto quotidiano.
+DATABASE_ROUTERS = ['u_exam.db_router.UExamRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators

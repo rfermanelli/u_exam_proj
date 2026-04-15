@@ -18,6 +18,8 @@ class Dipartimento(models.Model):
     class Meta:
         verbose_name_plural = 'Dipartimenti'
         ordering = ['nome']
+        managed = True          
+        db_table = 'dipartimento'  
 
     def __str__(self):
         return self.nome
@@ -41,6 +43,8 @@ class CorsoDiLaurea(models.Model):
     class Meta:
         verbose_name_plural = 'Corsi di laurea'
         ordering = ['nome']
+        managed = True          
+        db_table = 'corsodilaurea'
 
     def __str__(self):
         return self.nome
@@ -65,6 +69,8 @@ class Docente(models.Model):
     class Meta:
         verbose_name_plural = 'Docenti'
         ordering = ['nome', 'cognome']
+        managed = True          
+        db_table = 'docente'
 
     def __str__(self):
         return self.nome + " " + self.cognome

@@ -17,6 +17,8 @@ class Ssd(models.Model):
     class Meta:
         verbose_name_plural = 'SSD'
         ordering = ['codice_ssd']
+        managed = True          
+        db_table = 'ssd'
 
     def __str__(self):
         return self.codice_ssd
@@ -41,6 +43,8 @@ class Corso(models.Model):
     class Meta:
         verbose_name_plural = 'Corsi'
         ordering = ['nome']
+        managed = True          
+        db_table = 'corso'
 
     def __str__(self):
         return self.nome
@@ -62,6 +66,8 @@ class AnnoAccademico(models.Model):
     class Meta:
         verbose_name_plural = 'Anni accademici'
         ordering = ['stato', 'anno_inizio']
+        managed = True          
+        db_table = 'anno_accademico'
 
     def __str__(self):
         return self.stato + " " + str(self.anno_inizio) + "/" + str(self.anno_fine)
@@ -84,6 +90,8 @@ class Docenza(models.Model):
     class Meta:
         verbose_name_plural = 'Docenze'
         ordering = ['id_docente', 'id_corso', 'id_anno_accademico', 'titolare']
+        managed = True          
+        db_table = 'docenza'
 
     def __str__(self):
         return self.id_docente.__str__() + " - " + self.id_corso.__str__() + " - " + self.id_anno_accademico.__str__() + " - " + ("Titolare" if self.titolare else "Non titolare")
