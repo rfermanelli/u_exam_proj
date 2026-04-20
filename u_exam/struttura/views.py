@@ -46,6 +46,7 @@ def dipartimento_new(request):
     context = {"form": form}
     return render(request, 'dipartimento_new.html', context)
 
+# Definizione della funzione controller del form DipartimentoNew con la validazione applicativa (business logic):
 # def dipartimento_new(request):
 #     if request.method == 'POST':
 #         form = DipartimentoNew(request.POST)
