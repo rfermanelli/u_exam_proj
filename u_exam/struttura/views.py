@@ -46,3 +46,25 @@ def dipartimento_new(request):
     context = {"form": form}
     return render(request, 'dipartimento_new.html', context)
 
+# def dipartimento_new(request):
+#     if request.method == 'POST':
+#         form = DipartimentoNew(request.POST)
+#         if form.is_valid():
+#             # Recupero del valore dell'identificativo dal form
+#             identificativo = form.cleaned_data['identificativo']
+#             # Controllo se l'identificativo è maggiore di 100
+#             if identificativo <= 100:
+#                 form.add_error('identificativo', "L'identificatore deve essere maggiore di 100.")
+#             else:
+#                 dipartimento = Dipartimento(
+#                     id_dipartimento=identificativo, 
+#                     nome=form.cleaned_data['nome'], 
+#                     sede=form.cleaned_data['sede'])
+#                 dipartimento.save()
+#                 return HttpResponse("<h1>Dipartimento aggiunto con successo</h1>")
+#     else:
+#         form = DipartimentoNew()
+
+#     context = {"form": form}
+#     return render(request, 'dipartimento_new.html', context)
+
