@@ -102,51 +102,51 @@ class DipartimentoNew(forms.Form):
     
 
 # Definizione della classe di controllo del form con validazione più completa e personalizzazione dei widget:
-# class DipartimentoNew(forms.Form):
-#     identificativo = forms.IntegerField(
-#         # NumberInput è il widget di default per IntegerField
-#         # lo specifichiamo esplicitamente per aggiungere attributi HTML
-#         widget=forms.NumberInput(attrs={
-#             'class': 'form-control',        # classe CSS di Bootstrap
-#             'placeholder': 'Es. 101',       # testo di aiuto nel campo
-#             'min': '101',                   # validazione HTML lato browser
-#         }),
-#         min_value=101,                      # validazione Django lato server
-#         label="Identificativo",
-#         error_messages={
-#             'required': 'Il campo identificativo è obbligatorio.',
-#             'min_value': 'Il valore deve essere maggiore di 100.',
-#         }
-#     )
+class DipartimentoNew(forms.Form):
+    identificativo = forms.IntegerField(
+        # NumberInput è il widget di default per IntegerField
+        # lo specifichiamo esplicitamente per aggiungere attributi HTML
+        widget=forms.NumberInput(attrs={
+            'class': 'form-control',        # classe CSS di Bootstrap
+            'placeholder': 'Es. 101',       # testo di aiuto nel campo
+            'min': '101',                   # validazione HTML lato browser
+        }),
+        min_value=101,                      # validazione Django lato server
+        label="Identificativo",
+        error_messages={
+            'required': 'Il campo identificativo è obbligatorio.',
+            'min_value': 'Il valore deve essere maggiore di 100.',
+        }
+    )
 
-#     nome = forms.CharField(
-#         # di default CharField usa TextInput
-#         # lo sostituiamo con Textarea per avere un campo più grande
-#         widget=forms.Textarea(attrs={
-#             'class': 'form-control',        # classe CSS di Bootstrap
-#             'placeholder': 'Nome del dipartimento',
-#             'rows': 3,                      # altezza del textarea in righe
-#             'cols': 40,                     # larghezza del textarea in colonne
-#         }),
-#         max_length=100,
-#         min_length=3,
-#         label="Nome",
-#         error_messages={
-#             'required': 'Il campo nome è obbligatorio.',
-#         }
-#     )
+    nome = forms.CharField(
+        # di default CharField usa TextInput
+        # lo sostituiamo con Textarea per avere un campo più grande
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',        # classe CSS di Bootstrap
+            'placeholder': 'Nome del dipartimento',
+            'rows': 3,                      # altezza del textarea in righe
+            'cols': 40,                     # larghezza del textarea in colonne
+        }),
+        max_length=100,
+        min_length=3,
+        label="Nome",
+        error_messages={
+            'required': 'Il campo nome è obbligatorio.',
+        }
+    )
 
-#     sede = forms.CharField(
-#         # usiamo TextInput con attributi personalizzati
-#         widget=forms.TextInput(attrs={
-#             'class': 'form-control',
-#             'placeholder': 'Es. Roma, Milano...',
-#             'maxlength': '100',             # validazione HTML lato browser
-#         }),
-#         max_length=100,
-#         min_length=3,
-#         label="Sede",
-#         error_messages={
-#             'required': 'Il campo sede è obbligatorio.',
-#         }
-#     )
+    sede = forms.CharField(
+        # usiamo TextInput con attributi personalizzati
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Es. Roma, Milano...',
+            'maxlength': '100',             # validazione HTML lato browser
+        }),
+        max_length=100,
+        min_length=3,
+        label="Sede",
+        error_messages={
+            'required': 'Il campo sede è obbligatorio.',
+        }
+    )
