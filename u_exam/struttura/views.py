@@ -7,6 +7,7 @@ from django.shortcuts import render
 
 # import degli oggetti model
 from .models import Dipartimento, CorsoDiLaurea
+from .models import CorsoDiLaurea
 
 # Create your views here.
 def dipartimento_list(request):
@@ -45,6 +46,30 @@ def dipartimento_new(request):
 
     context = {"form": form}
     return render(request, 'dipartimento_new.html', context)
+
+
+# import del form CorsoDiLaureaNew
+from .forms import CorsoDiLaureaNew
+# Definizione della funzione controller del form CorsoDiLaureaNew:
+def corso_di_laurea_new(request):
+    if request.method == 'POST':
+        form = CorsoDiLaureaNew(request.POST)
+        if form.is_valid():
+            corsodilaurea = CorsoDiLaurea(
+                identificativo= form.cleaned_data['identificativo'], 
+                nome=form.cleaned_data['nome'],
+                classe_di_laurea=form.cleaned_data['classe_di_laurea'],
+                tipo=form.cleaned_data['tipo'], 
+                dipartimento=form.cleaned_data['dipartimento'])
+            corsodilaurea.save()     
+            print(form.cleaned_data)
+            print(f"testo: {form.cleaned_data['nome']}")
+            return HttpResponse("<h1>Corso di laurea aggiunto con successo</h1>")
+    else:
+        form = CorsoDiLaureaNew()
+
+    context = {"form": form}
+    return render(request, 'corso_di_laurea_new.html', context)
 
 # Definizione della funzione controller del form DipartimentoNew con la validazione applicativa (business logic):
 # def dipartimento_new(request):

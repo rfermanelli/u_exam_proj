@@ -1,5 +1,6 @@
 # Importazione del modulo forms:
 from django import forms
+from .models import Dipartimento
 
 # Definizione della classe di controllo del form:
 class DipartimentoNew(forms.Form):
@@ -25,8 +26,14 @@ class DipartimentoNew(forms.Form):
             raise forms.ValidationError("La sede deve essere lunga almeno 3 caratteri.")
         return sede
     
-
-
+class CorsoDiLaureaNew(forms.Form):
+    identificativo = forms.IntegerField()
+    nome = forms.CharField(max_length=100)
+    classe_di_laurea = forms.CharField(max_length=100)
+    tipo = forms.CharField(max_length=100)
+    dipartimento = forms.ModelChoiceField(queryset=Dipartimento.objects.all())
+    
+    
 # Definizione della classe di controllo del form con validazione più completa:
 # class DipartimentoNew(forms.Form):
 #     # 1. Validazione del tipo + parametri del campo

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Pagina del corso di laurea</title>
+    <h1> Pagina di inserimento del corso di laurea </h1>
+</head>
+<body>
+    
+     <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="invia">
+        </form>
+    </div>
+
+</body>
+</html>
+
+
+
