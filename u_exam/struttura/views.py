@@ -24,3 +24,21 @@ def dipartimento_list(request):
     }
     # return render(request, 'struttura/dipartimento_list.html', {'dipartimenti': dipartimenti})
     return render(request, 'dipartimento/dipartimento_list.html', context)
+
+# import del form DipartimentoNew
+from .forms import DipartimentoNew
+# Definizione della funzione controller del form DipartimentoNew:
+def dipartimento_new(request):
+    if request.method == 'POST':
+        form = DipartimentoNew(request.POST)
+        if form.is_valid():
+            dipartimento = Dipartimento(id_dipartimento= form.cleaned_data['identificativo'], nome=form.cleaned_data['nome'], sede=form.cleaned_data['sede'])
+            dipartimento.save()
+            print(form.cleaned_data)
+            print(f"testo: {form.cleaned_data['nome']}")
+            return HttpResponse("<h1>Dipartimento aggiunto con successo</h1>")
+    else:
+        form = DipartimentoNew()
+
+    context = {"form": form}
+    return render(request, 'dipartimento_new.html', context)

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <title>Pagina del dipartimento</title>
+    <h1> Pagina di inserimento del dipartimento </h1>
+</head>
+<body>
+<!--    <div>-->
+<!--        <form action="">-->
+<!--            {{ form.as_p }}-->
+<!--            <input type="submit" value="invia">-->
+<!--        </form>-->
+<!--    </div>-->
+     <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="invia">
+        </form>
+    </div>
+    <table>
+        <tr><td>identificativo: </td><td>{{ form.identificativo}}</td></tr>
+        <tr><td>Cognome: </td><td>{{ form.nome}}</td></tr>
+        <tr><td>Sede: </td><td>{{ form.sede}}</td></tr>
+    </table>
+</body>
+</html>
+
