@@ -6,7 +6,7 @@ class DipartimentoNew(forms.Form):
     identificativo = forms.IntegerField()
     nome = forms.CharField(max_length=100)
     sede = forms.CharField(max_length=100)
-
+    
     def clean_identificativo(self):
         identificativo = self.cleaned_data['identificativo']
         if identificativo <= 100:
