@@ -29,7 +29,6 @@ class DipartimentoNew(forms.Form):
 
 # Definizione della classe di controllo del form con validazione più completa:
 # class DipartimentoNew(forms.Form):
-    
 #     # 1. Validazione del tipo + parametri del campo
 #     identificativo = forms.IntegerField(
 #         min_value=101,          # deve essere maggiore di 100
