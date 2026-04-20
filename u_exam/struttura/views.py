@@ -32,7 +32,10 @@ def dipartimento_new(request):
     if request.method == 'POST':
         form = DipartimentoNew(request.POST)
         if form.is_valid():
-            dipartimento = Dipartimento(id_dipartimento= form.cleaned_data['identificativo'], nome=form.cleaned_data['nome'], sede=form.cleaned_data['sede'])
+            dipartimento = Dipartimento(
+                id_dipartimento= form.cleaned_data['identificativo'], 
+                nome=form.cleaned_data['nome'], 
+                sede=form.cleaned_data['sede'])
             dipartimento.save()
             print(form.cleaned_data)
             print(f"testo: {form.cleaned_data['nome']}")
@@ -42,3 +45,4 @@ def dipartimento_new(request):
 
     context = {"form": form}
     return render(request, 'dipartimento_new.html', context)
+
