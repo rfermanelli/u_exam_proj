@@ -32,7 +32,7 @@ class CorsoDiLaurea(models.Model):
     id_cdl = models.IntegerField(primary_key=True)
     nome = models.CharField(max_length=150, unique=True)
     classe_di_laurea = models.CharField(max_length=20)
-    tipo = models.CharField(max_length=20)
+    tipo = models.CharField(max_length=20, choices=[('Triennale', 'Triennale'), ('Magistrale', 'Magistrale')])
     dipartimento = models.ForeignKey(Dipartimento, on_delete=models.CASCADE, related_name="corso_di_laurea")
 
     # Meta è una classe interna che fornisce a Django i metadati sul modello:

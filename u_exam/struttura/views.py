@@ -56,7 +56,7 @@ def corso_di_laurea_new(request):
         form = CorsoDiLaureaNew(request.POST)
         if form.is_valid():
             corsodilaurea = CorsoDiLaurea(
-                identificativo= form.cleaned_data['identificativo'], 
+                id_cdl= form.cleaned_data['identificativo'], 
                 nome=form.cleaned_data['nome'],
                 classe_di_laurea=form.cleaned_data['classe_di_laurea'],
                 tipo=form.cleaned_data['tipo'], 
