@@ -77,9 +77,9 @@ class Docenza(models.Model):
     # segua una docstring di presentazione del modello:
     """Modello della entità Docenza dell'area Offerta formativa"""
 
-    id_docente = models.ForeignKey(Docente, on_delete=models.CASCADE, related_name="docenze")
-    id_corso = models.ForeignKey(Corso, on_delete=models.CASCADE, related_name="docenze")
-    id_anno_accademico = models.ForeignKey(AnnoAccademico, on_delete=models.CASCADE, related_name="docenze")
+    docente = models.ForeignKey(Docente, on_delete=models.CASCADE, related_name="docenze")
+    corso = models.ForeignKey(Corso, on_delete=models.CASCADE, related_name="docenze")
+    anno_accademico = models.ForeignKey(AnnoAccademico, on_delete=models.CASCADE, related_name="docenze")
     titolare = models.BooleanField(default=False)
     
     # Meta è una classe interna che fornisce a Django i metadati sul modello:
