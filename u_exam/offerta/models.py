@@ -89,7 +89,7 @@ class Docenza(models.Model):
     # con ['nome'] i risultati sono determinati in ordine alfabetico per nome.
     class Meta:
         verbose_name_plural = 'Docenze'
-        ordering = ['id_docente', 'id_corso', 'id_anno_accademico', 'titolare']
+        ordering = ['docente_id', 'corso_id', 'anno_accademico_id', 'titolare']
         managed = True          
         db_table = 'docenza'
 
